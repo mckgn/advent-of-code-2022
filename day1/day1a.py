@@ -1,6 +1,6 @@
 # Day 1 - Part 1 - Calorie Counting
 
-d1_file = 'day1_input.txt'
+d1_file = 'day1/day1_input.txt'
 
 with open(d1_file) as d1_f:
     d1_contents = d1_f.read()
