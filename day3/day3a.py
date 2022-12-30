@@ -28,18 +28,18 @@ upper_list = list(string.ascii_uppercase)
 lower_list = list(string.ascii_lowercase)
 
 lower_df = pd.DataFrame()
-i = 1
-for x in lower_list:
-	new_lower_df = pd.DataFrame({'Common Letter' : [x], 'Priority' : [i]})
+m = 1
+for n in lower_list:
+	new_lower_df = pd.DataFrame({'Common Letter' : [n], 'Priority' : [m]})
 	lower_df = pd.concat([lower_df, new_lower_df])
-	i += 1
+	m += 1
 
 upper_df = pd.DataFrame()
-j = 27
-for y in upper_list:
-	new_upper_df = pd.DataFrame({'Common Letter' : [y], 'Priority' : [j]})
+o = 27
+for p in upper_list:
+	new_upper_df = pd.DataFrame({'Common Letter' : [p], 'Priority' : [o]})
 	upper_df = pd.concat([upper_df, new_upper_df])
-	j += 1
+	o += 1
 
 combined_letters = pd.concat([lower_df, upper_df])
 
