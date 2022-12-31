@@ -5,7 +5,7 @@
 import pandas as pd
 import numpy as np
 
-x = open('day2/day2_input.txt').read().splitlines()
+x = open('day2/day2_input.txt').read().strip().splitlines()
 
 df = pd.DataFrame({'Matches' : x})
 
