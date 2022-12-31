@@ -8,7 +8,7 @@ start = 0
 total = 0
 
 while start < len(x):
-	y = x[start:start+3]
+	y = x[start:start + 3]
 	start += 3
 
 	for char_priority, char in enumerate(a):
