@@ -1,4 +1,4 @@
-# Day 7 - Part 2 - No Space Left On Device - 
+# Day 7 - Part 2 - No Space Left On Device - Find which folder to remove in order to free up just enough space
 
 x = open('day7/day7_input.txt').read().strip().splitlines()
 
