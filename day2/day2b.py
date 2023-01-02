@@ -7,35 +7,11 @@ import numpy as np
 
 x = open('day2/day2_input.txt').read().strip().splitlines()
 
-df = pd.DataFrame({'Matches' : x})
+outcomes = {'A X' : 3, 'A Y' : 4, 'A Z' : 8, 'B X' : 1, 'B Y' : 5, 'B Z' : 9, 'C X' : 2, 'C Y' : 6, 'C Z' : 7}
 
-df['Competitor'] = df['Matches'].astype(str).str[0]
-df['Outcome'] = df['Matches'].astype(str).str[2]
+total_score = 0
 
-df = df.replace('A', 'Rock')
-df = df.replace('B', 'Paper')
-df = df.replace('C', 'Scissors')
+for y in x:
+	total_score = total_score + outcomes[y]
 
-df['Outcome'] = np.where(df['Outcome'] == 'Z', 'Win', df['Outcome'])
-df['Outcome'] = np.where(df['Outcome'] == 'X', 'Lose', df['Outcome'])
-df['Outcome'] = np.where(df['Outcome'] == 'Y', 'Tie', df['Outcome'])
-
-df['Me'] = np.where((df['Outcome'] == 'Win') & (df['Competitor'] == 'Paper'), 'Scissors', '')
-df['Me'] = np.where((df['Outcome'] == 'Win') & (df['Competitor'] == 'Rock'), 'Paper', df['Me'])
-df['Me'] = np.where((df['Outcome'] == 'Win') & (df['Competitor'] == 'Scissors'), 'Rock', df['Me'])
-
-df['Me'] = np.where((df['Outcome'] == 'Lose') & (df['Competitor'] == 'Paper'), 'Rock', df['Me'])
-df['Me'] = np.where((df['Outcome'] == 'Lose') & (df['Competitor'] == 'Rock'), 'Scissors', df['Me'])
-df['Me'] = np.where((df['Outcome'] == 'Lose') & (df['Competitor'] == 'Scissors'), 'Paper', df['Me'])
-
-df['Me'] = np.where((df['Outcome'] == 'Tie'), df['Competitor'], df['Me'])
-
-df['Me Points'] = np.where(df['Me'] == 'Rock', 1, 3)
-df['Me Points'] = np.where(df['Me'] == 'Paper', 2, df['Me Points'])
-
-df['Outcome Points'] = np.where(df['Outcome'] == 'Win', 6, 3)
-df['Outcome Points'] = np.where(df['Outcome'] == 'Lose', 0, df['Outcome Points'])
-
-df['Total'] = df['Me Points'] + df['Outcome Points']
-
-print(df['Total'].sum())
+print(total_score)
